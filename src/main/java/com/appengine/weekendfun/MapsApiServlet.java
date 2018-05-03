@@ -43,18 +43,20 @@ public class MapsApiServlet extends HttpServlet {
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 		Map<String, JSONObject> results = getResultsForCategory(req);
-		if (results != null) {
+		String link = null;
+		/*if (results != null) {
 			for (String placeName : results.keySet()) {
 				JSONObject place = results.get(placeName);
 				JSONArray weathers = (JSONArray) place.get("weatherMap");
 				Map<String, String> weather = (Map<String, String>) weathers.get(0);
 				String w1 = weather.get("weatherDesc");
 				String w2 = weather.get("temperature");
-				/*
-				 * JSONArray photos = place.getJSONArray("photos"); if(photos == null) continue;
-				 * String link =
-				 * photos.getJSONObject(0).getJSONArray("html_attributions").get(0).toString();
-				 */
+				if(!place.keySet().contains("photos")) {
+					System.out.println(place.getString("name"));
+				} else {
+					JSONArray photos = place.getJSONArray("photos");
+					link = photos.getJSONObject(0).getString("photo_reference");
+				}
 				// out.print("<tr>");
 				// out.print("<td>");
 				// out.print(place.getString("name"));
@@ -67,7 +69,7 @@ public class MapsApiServlet extends HttpServlet {
 				// out.print("</td>");
 				// out.print("</tr>");
 			}
-		}
+		}*/
 		req.setAttribute("results", results);
 		RequestDispatcher dispatcher = req.getRequestDispatcher("index.jsp");
 		dispatcher.forward(req, resp);
@@ -133,7 +135,7 @@ public class MapsApiServlet extends HttpServlet {
 				if (results.length() == 0)
 					continue;
 				if (groupType.equals("kids")) {
-					for (int i = 0; i < results.length() && i < 10; i++) {
+					for (int i = 0; i < results.length() && i < 15; i++) {
 						JSONObject place = results.getJSONObject(i);
 						String placeName = place.getString("name");
 						JSONObject geometry = place.getJSONObject("geometry");
@@ -146,16 +148,18 @@ public class MapsApiServlet extends HttpServlet {
 						resultsMap.put(placeName, place);
 					}
 				} else {
-					JSONObject place = results.getJSONObject(0);
-					String placeName = place.getString("name");
-					JSONObject geometry = place.getJSONObject("geometry");
-					JSONObject location = geometry.getJSONObject("location");
-					Double lat = location.getDouble("lat");
-					Double lng = location.getDouble("lng");
-					Map<String, String> weatherMap = new HashMap<String, String>();
-					weatherMap = getWeatherDetails(lat, lng, dateSelected);
-					place.append("weatherMap", weatherMap);
-					resultsMap.put(placeName, place);
+					for (int i = 0; i < results.length() && i < 3; i++) {
+						JSONObject place = results.getJSONObject(i);
+						String placeName = place.getString("name");
+						JSONObject geometry = place.getJSONObject("geometry");
+						JSONObject location = geometry.getJSONObject("location");
+						Double lat = location.getDouble("lat");
+						Double lng = location.getDouble("lng");
+						Map<String, String> weatherMap = new HashMap<String, String>();
+						weatherMap = getWeatherDetails(lat, lng, dateSelected);
+						place.append("weatherMap", weatherMap);
+						resultsMap.put(placeName, place);
+					}
 				}
 			}
 		}

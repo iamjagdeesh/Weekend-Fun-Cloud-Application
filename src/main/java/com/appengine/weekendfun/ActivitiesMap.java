@@ -12,16 +12,12 @@ public class ActivitiesMap {
 	@Cacheable("cachedMap")
 	public static Map<String, Map<String, String[]>> initializeMap() {
 
-		String[] seniorsType1 = { "golf", "miniature golf", "beach volleyball", "tennis", "badminton", "bowling",
-				"curling", "swimming" };
-		String[] seniorsType2 = { "ballroom dancing", "salsa dancing", "swing dancing", "karaoke", "theatre and plays",
-				"line dancing", "movies" };
-		String[] seniorsType3 = { "casino", "escape room", "trivia night", "masquerade ball", "parties for seniors" };
+		String[] seniorsType1 = { "golf","swimming","badminton"};
+		String[] seniorsType2 = { "karaoke","theatre and plays","movies" };
+		String[] seniorsType3 = { "casino","trivia night", "parties for seniors" };
 		String[] seniorsType4 = { "bingo game", "poker game", "arts and craft centers" };
-		String[] seniorsType5 = { "animal interaction", "bird watching", "boating", "kayaking", "picnic",
-				"nature photography", "horse racing", "fishing" };
-		String[] seniorsType6 = { "carnivals", "county fairs", "comedy clubs", "museums for seniors",
-				"arcades for seniors", "wineries" };
+		String[] seniorsType5 = { "animal interaction", "boating", "picnic"};
+		String[] seniorsType6 = { "carnivals", "museums for seniors","wineries" };
 		Map<String, String[]> seniorsMap = new HashMap<String, String[]>();
 		seniorsMap.put("type1", seniorsType1);
 		seniorsMap.put("type2", seniorsType2);
@@ -31,13 +27,11 @@ public class ActivitiesMap {
 		seniorsMap.put("type6", seniorsType6);
 		activitiesMap.put("seniors", seniorsMap);
 
-		String[] adultsType1 = { "golf", "beach volleyball", "bowling", "swimming" };
-		String[] adultsType2 = { "karaoke", "theatre and plays", "swing dance" };
-		String[] adultsType3 = { "sports grills", "movies", "casino", "trivia night", "pub", "club", "curling" };
-		String[] adultsType4 = { "animal interaction", "nature photography", "hiking", "boating", "kayaking", "biking",
-				"picnic", "horse racing", "fishing" };
-		String[] adultsType5 = { "carnivals", "comedy clubs", "museums for adults", "arcades for adults", "wineries",
-				"concerts", "theme parks" };
+		String[] adultsType1 = { "beach volleyball", "bowling", "swimming" };
+		String[] adultsType2 = { "karaoke", "theatre and plays", "fun activities for families" };
+		String[] adultsType3 = { "sports grills", "movies", "casino" };
+		String[] adultsType4 = { "nature photography","kayaking","horse racing" };
+		String[] adultsType5 = { "arcades for adults","concerts", "theme parks" };
 		Map<String, String[]> adultsMap = new HashMap<String, String[]>();
 		adultsMap.put("type1", adultsType1);
 		adultsMap.put("type2", adultsType2);
@@ -47,12 +41,11 @@ public class ActivitiesMap {
 		activitiesMap.put("adults", adultsMap);
 
 		String[] youthType1 = { "fun activities for young people", "fun activities for youth" };
-		String[] youthType2 = { "paint-ball", "ice skating", "beach volleyball", "tennis", "badminton", "bowling",
-				"swimming" };
-		String[] youthType3 = { "escape room", "sports grills", "movies", "casino", "trivia night", "pub", "club" };
-		String[] youthType4 = { "scuba diving", "sky diving", "bungee jumping", "paragliding" };
-		String[] youthType5 = { "nature photography", "hiking", "boating", "kayaking", "biking", "rafting" };
-		String[] youthType6 = { "carnivals", "comedy clubs", "arcades for youth", "concerts", "theme parks" };
+		String[] youthType2 = { "paint-ball", "ice skating", "bowling"};
+		String[] youthType3 = { "escape room", "sports grills", "movies"};
+		String[] youthType4 = { "scuba diving", "sky diving", "bungee jumping"};
+		String[] youthType5 = { "hiking","biking", "rafting" };
+		String[] youthType6 = { "arcades for youth", "concerts", "theme parks" };
 		Map<String, String[]> youthMap = new HashMap<String, String[]>();
 		youthMap.put("type1", youthType1);
 		youthMap.put("type2", youthType2);
@@ -63,13 +56,11 @@ public class ActivitiesMap {
 		activitiesMap.put("youth", youthMap);
 
 		String[] teensType1 = { "fun activities for teenagers", "fun activities for college students" };
-		String[] teensType2 = { "paint-ball", "ice skating", "beach volleyball", "tennis", "badminton", "bowling",
-				"swimming" };
-		String[] teensType3 = { "ballroom dancing", "salsa dancing", "swing dancing", "movies" };
-		String[] teensType4 = { "escape room", "scuba diving", "sky diving", "bungee jumping", "paragliding" };
-		String[] teensType5 = { "animal interaction", "hiking", "boating", "kayaking", "biking", "rafting",
-				"go karting" };
-		String[] teensType6 = { "carnivals", "comedy clubs", "arcades for teenagers", "concerts", "theme parks" };
+		String[] teensType2 = { "paint-ball", "ice skating", "bowling"};
+		String[] teensType3 = { "salsa dancing", "swing dancing", "movies" };
+		String[] teensType4 = { "escape room", "scuba diving", "sky diving" };
+		String[] teensType5 = { "hiking","rafting","go karting" };
+		String[] teensType6 = { "arcades for teenagers", "concerts", "theme parks" };
 		Map<String, String[]> teensMap = new HashMap<String, String[]>();
 		teensMap.put("type1", teensType1);
 		teensMap.put("type2", teensType2);
