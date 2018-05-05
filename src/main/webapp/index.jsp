@@ -175,10 +175,16 @@
 											dst = "No Info";
 										}
 										String[] arrOfaddr = dst.split(",");
-										if (arrOfaddr.length >= 2) {
-											city = arrOfaddr[1];
+										int addLength = arrOfaddr.length; 
+										if (addLength < 3) {
+											if(addLength < 2) {
+												city = arrOfaddr[0];
+											}
+											else {
+												city = arrOfaddr[1];	
+											}
 										} else {
-											city = arrOfaddr[0];
+											city = arrOfaddr[addLength - 3];
 										}
 
 										String newDst = dst.replaceAll("[,]", "");
